@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Junk_Reason__c</fullName>
+    <externalId>false</externalId>
+    <label>Junk Reason</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No response from Customer</fullName>
+                <default>false</default>
+                <label>No response from Customer</label>
+            </value>
+            <value>
+                <fullName>Customer not interested anymore</fullName>
+                <default>false</default>
+                <label>Customer not interested anymore</label>
+            </value>
+            <value>
+                <fullName>Inactive Lead</fullName>
+                <default>false</default>
+                <label>Inactive Lead</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

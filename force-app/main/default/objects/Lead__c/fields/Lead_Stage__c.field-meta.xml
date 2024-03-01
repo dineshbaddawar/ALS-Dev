@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Stage__c</fullName>
+    <externalId>false</externalId>
+    <label>Site Onboarding Stage</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Site Research</fullName>
+                <default>false</default>
+                <label>Site Research</label>
+            </value>
+            <value>
+                <fullName>Initial Contact</fullName>
+                <default>false</default>
+                <label>Initial Contact</label>
+            </value>
+            <value>
+                <fullName>Negotiation &amp; Agreement</fullName>
+                <default>false</default>
+                <label>Negotiation &amp; Agreement</label>
+            </value>
+            <value>
+                <fullName>Legal &amp; Documentation</fullName>
+                <default>false</default>
+                <label>Legal &amp; Documentation</label>
+            </value>
+            <value>
+                <fullName>Site Permit</fullName>
+                <default>false</default>
+                <label>Site Permit</label>
+            </value>
+            <value>
+                <fullName>Site Approval</fullName>
+                <default>false</default>
+                <label>Site Approval</label>
+            </value>
+            <value>
+                <fullName>Ready For Installation</fullName>
+                <default>false</default>
+                <label>Ready For Installation</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

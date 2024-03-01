@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Converted_Leads</fullName>
+    <columns>NAME</columns>
+    <columns>First_Name__c</columns>
+    <columns>Company__c</columns>
+    <columns>Lead_Status__c</columns>
+    <columns>Email__c</columns>
+    <columns>IsConverted__c</columns>
+    <columns>Phone__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>IsConverted__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Lead_Status__c</field>
+        <operation>equals</operation>
+        <value>Convert</value>
+    </filters>
+    <label>Converted Leads</label>
+</ListView>
