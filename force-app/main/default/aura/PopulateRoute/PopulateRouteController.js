@@ -162,10 +162,18 @@
                 window.open(urlToOpen, "_self");
             } else {
 
+                var errors = action.getError();
+                if (errors) {
+                    if (errors[0] && errors[0].message) {
+                        //  alert(errors[0].message);
+                        var errorMessage = errors[0].message;
+                    }
+                }
+
                 var toastEvent = $A.get("e.force:showToast");
                 toastEvent.setParams({
-                    title : 'Error',
-                    message:'Route not Created successfully!',
+                    title : 'ERROR',
+                    message:errorMessage,
                     duration:' 5000',
                     key: 'info_alt',
                     type: 'error',

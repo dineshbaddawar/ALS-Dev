@@ -129,13 +129,15 @@
                         </tr>
                         <tr>
                             <td style="padding-bottom: 10px;white-space: nowrap;border:none"><span><b>Quotation Date :</b></span></td>
-                            <td style="padding-bottom: 10px;white-space: nowrap; border:none"><span style="font-weight: normal;"><apex:outputText value="{0, date, MM/dd/yyyy}"><apex:param value="{!quote.CreatedDate}" /></apex:outputText></span></td>
+                            <!--td style="padding-bottom: 10px;white-space: nowrap; border:none"><span style="font-weight: normal;"><apex:outputText value="{0, date, MM/dd/yyyy}"><apex:param value="{!quote.CreatedDate}" /></apex:outputText></span></td-->
+                            <td style="padding-bottom: 10px;white-space: nowrap; border:none"><span style="font-weight: normal;">{!quotationDate}</span></td>
                         </tr>
                         <!-- Add more rows as needed -->
                         
                         <tr>
                             <td style="padding-bottom: 10px; white-space: nowrap;border:none"><span><b>Validity Date :</b></span></td>
-                            <td style="padding-bottom: 10px; white-space: nowrap;border:none"><span style="font-weight: normal;"><apex:outputText value="{0, date, MM/dd/yyyy}"><apex:param value="{!quote.Quote_Validity__c}" /></apex:outputText></span></td>
+                            <!--td style="padding-bottom: 10px; white-space: nowrap;border:none"><span style="font-weight: normal;"><apex:outputText value="{0, date, MM/dd/yyyy}"><apex:param value="{!quote.Quote_Validity1__c}" /></apex:outputText></span></td-->
+                            <td style="padding-bottom: 10px; white-space: nowrap;border:none"><span style="font-weight: normal;">{!validityDate}</span></td>
                         </tr>
                     </table>
                 </div>
@@ -193,9 +195,9 @@
                         <li>Extreme pH values</li>
                         <li>Potential Impurities present at concentrations greater than 10 %</li>
                         <li>Strong or noxious odors, vapors</li>
-                        <li>Strong or noxious odors, vapors</li>
-                        <li>Strong or noxious odors, vapors</li>
-                        <li>Strong or noxious odors, vapors</li>
+                        <li>Asbestos</li>
+                        <li>Highly Saline Water</li>
+                        <li>Biological hazards</li>
                     </ul>	   
                 </span>	
                 
@@ -370,7 +372,7 @@
                 <span style="display: block; margin-bottom: 5px"><strong>Name of Beneficiary:</strong> {!BankDetails.Name_of_Beneficiary__c}</span>
                 <span style="display: block; margin-bottom: 5px"><strong>Bank Name:</strong> {!BankDetails.Bank_Name__c}</span>
                 <span style="display: block; margin-bottom: 5px"><strong>Address:</strong> {!BankDetails.Address__c}</span>
-                <span style="display: block; margin-bottom: 5px"><strong>Branch Name:</strong> {!BankDetails.Address__c}</span>
+                <span style="display: block; margin-bottom: 5px"><strong>Branch Name:</strong> {!BankDetails.Branch_Name__c}</span>
                
                 <span style="display: block; margin-bottom: 5px"><strong>Bank Account Name:</strong> {!BankDetails.Bank_Account_Name__c}</span>
                 <span style="display: block; margin-bottom: 5px"><strong>Bank Account Number:</strong> {!BankDetails.Bank_Account_Number__c}</span>

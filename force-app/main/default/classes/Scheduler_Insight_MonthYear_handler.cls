@@ -25,7 +25,7 @@ public class Scheduler_Insight_MonthYear_handler {
     Public static List<Day_Visit_Plan__c> getMonthlyRecord(String month,string year){
         System.debug('month-->'+month);
         System.debug('year-->'+year);
-        List<Day_Visit_Plan__c> getAllDayVisitPlanRecList = [Select Id,Start_Date__c,End_Date__c,Total_Distance__c, Total_Covered_Distance__c,CreatedDate From Day_Visit_Plan__c where Service_Executive__c =: userInfo.getUserId() AND Year__c=:year AND Month__c=:month];
+        List<Day_Visit_Plan__c> getAllDayVisitPlanRecList = [Select Id,Start_Date__c,End_Date__c,Total_Distance__c, Total_Covered_Distance__c,CreatedDate From Day_Visit_Plan__c where Service_Executive__c =: userInfo.getUserId() AND Year__c=:year AND Month__c=:month ORDER BY Start_Date__c DESC];
         //List<Day_Visit_Plan__c> getAllDayVisitPlanRecList = [Select Id,Start_Date__c,End_Date__c,Total_Distance__c, Total_Covered_Distance__c,CreatedDate From Day_Visit_Plan__c where Service_Executive__c =: userInfo.getUserId()];
         System.debug('getAllDayVisitPlanRecList-->'+getAllDayVisitPlanRecList);
         return getAllDayVisitPlanRecList;

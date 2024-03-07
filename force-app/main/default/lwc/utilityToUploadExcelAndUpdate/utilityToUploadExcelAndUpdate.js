@@ -51,6 +51,7 @@ export default class UtilityToUploadExcelAndUpdate extends LightningElement {
         } catch (e) {
             this.error = e;
             console.error('error=>', e);
+            // "26/03/2024  12:30:00 PM"
         }
     }
 
@@ -70,6 +71,7 @@ export default class UtilityToUploadExcelAndUpdate extends LightningElement {
     }
 
     @track Csvdata = [];
+    
 
     parse(csv) {
         const lines = csv.split(/\r\n|\n/);
@@ -91,8 +93,42 @@ export default class UtilityToUploadExcelAndUpdate extends LightningElement {
                 let filtered_str = currentline[j].replace('\"', '');
 
                 if (filtered_str != null && filtered_str != undefined && filtered_str != '') {
-                        if (field_data_type == 'Date/Time') {
+                    if (field_data_type == 'Date/Time') {
+                        var dateString = filtered_str;
+                        if (dateString.match(/(AM|PM)/)) { 
+                            dateString =  dateString.replace(" PM", "");
+                        }
+
+                        var format1RegexHyphen = /^\d{2}-\d{2}-\d{4} \d{2}:\d{2}$/;
+                        var format2RegexSlash = /^\d{1,2}\/\d{1,2}\/\d{4} \d{2}:\d{2}$/;
+
+                        if (format1RegexHyphen.test(dateString)) {
+                            console.log('Format 1 format1RegexHyphen');
+
+                            const [datePart, timePart] = dateString.split(" ");
+                            const [day, month, year] = datePart.split("-");
+                            const [time, period] = timePart.split(" ");
+                            let [hour, minute, second] = time.split(":");
+                            // if (period === "PM") {
+                            //     hour = parseInt(hour) + 12; // Convert to 24-hour format if PM
+                            // }
+                            var dateString;
+                            if (second != undefined) {
+                                dateString = `${year}-${month}-${day}T${hour}:${minute}:${second}.000Z`;
+                            } else {
+                                dateString = `${year}-${month}-${day}T${hour}:${minute}:00.000Z`;
+                            }
+                            const dateToString = new Date(dateString);
+                            obj[field_api_name] = dateToString.toISOString();
+                        } else if (format2RegexSlash.test(dateString)) {
+                            console.log('Format 2 format2RegexSlash');
+                           // new Date(filtered_str).toISOString();
                             obj[field_api_name] = new Date(filtered_str).toISOString();
+
+                         }
+
+                                               
+
                         } else {
                             obj[field_api_name] = filtered_str;
                         }

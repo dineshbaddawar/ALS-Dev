@@ -4,6 +4,8 @@ public class ALS_Quote_pdf_controller {
     public Decimal totalAmount { get; set; }
     public String totalAmountWords { get; set; }
     public String totalAmountWordswithoutGst { get; set; }
+    Public String quotationDate { get; set; }
+    Public String validityDate { get; set; }
     public Decimal discountPercentage { get; set; }
     private static final Decimal FIXED_GST_PERCENTAGE = 18;
     public Decimal gstPercentage { get; set; }
@@ -31,7 +33,7 @@ public class ALS_Quote_pdf_controller {
         if(controller.getId()!=null){
             quote = [SELECT Id, Quote_Name__c,Subject__c,Subtotal__c,Total_Price1__c, Include_GST__c, Sample_Requirement__c,OpportunityId__c, OpportunityId__r.CreatedBy.Name,OpportunityId__r.CreatedBy.MobilePhone,OpportunityId__r.Billing_Address__Street__s,
                      OpportunityId__r.Billing_Address__City__s,OpportunityId__r.Billing_Address__PostalCode__s,OpportunityId__r.Billing_Address__StateCode__s,
-                     OpportunityId__r.Billing_Address__CountryCode__s,AccountId__r.Name, Include_Discount__c, CreatedDate, Quote_Validity__c, Discount__c, Sample_Quantity__c, 
+                     OpportunityId__r.Billing_Address__CountryCode__s,AccountId__r.Name, Include_Discount__c, CreatedDate, Quote_Validity__c,Quote_Validity1__c, Discount__c, Sample_Quantity__c, 
                      TAT__c, Note__c, Comment__c, Name, Email__c, ContactId__r.Name, ContactId__r.Phone, ContactId__r.Email, ContactId__r.Owner.Name,ContactId__r.Owner.MobilePhone,
                      (SELECT Quantity__c, Name, List_Price__c,Sales_Price__c,Subtotal__c, Total_Price__c, ProductId__r.Name,ProductId__r.ProductCode__c,ProductId__r.Method__c,Test_Method__c,Product_Code__c FROM QuoteLineItems__r) 
                      FROM Quote_C__c 
@@ -53,6 +55,12 @@ total += item.Total_Price__c;
 */
             
             totalAmount = total;
+            quotationDate  = quote.CreatedDate.format('dd/MM/yyyy');
+            Date validityDateObject = quote.Quote_Validity1__c;
+            Integer day = validityDateObject.day();
+            Integer month = validityDateObject.month();
+            Integer year = validityDateObject.year();
+            validityDate  = String.valueOf(day) + '/' + String.valueOf(month) + '/' + String.valueOf(year);
             
             //  totalAmountWords =  NumberToText.convert(Integer.valueOf(totalAmount));            //   ConvertIntgerIntoString.english_number(totalAmount);
             

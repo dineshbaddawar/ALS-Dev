@@ -15,8 +15,11 @@ public class OpportunityHelper {
                 if(oppRecToUpdate.RSM__c !=null){
                     String htmlBody = temp.HTMLValue;
                     String plainTextBody = temp.body;
+                    String recordUrl = URL.getOrgDomainURL().toExternalForm() + '/' + oppRecToUpdate.Id;
                     plainTextBody = plainTextBody.replace('{!OwnerId__r.Name}', oppRecToUpdate.CreatedBy.Name);
+                    plainTextBody = plainTextBody.replace('{!Opportunity1__c.Link}',  recordUrl);
                     htmlBody = htmlBody.replace('{!OwnerId__r.Name}', oppRecToUpdate.CreatedBy.Name);
+                    htmlBody = htmlBody.replace('{!Opportunity1__c.Link}',  recordUrl);
                     Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
                     mail.setHtmlBody(htmlBody);
                     mail.setSubject(temp.Subject);
@@ -110,8 +113,11 @@ public class OpportunityHelper {
                                 System.debug('Inside success');
                                 String htmlBody = temp.HTMLValue;
                                 String plainTextBody = temp.body;
+                                String recordUrl = URL.getOrgDomainURL().toExternalForm() + '/' + oppRec.Id;
                                 plainTextBody = plainTextBody.replace('{!Customer_Success__r.Name}', oppRec.Customer_Success__r.Name);
+                                plainTextBody = plainTextBody.replace('{!Opportunity1__c.Link}',  recordUrl);
                                 htmlBody = htmlBody.replace('{!Customer_Success__r.Name}', oppRec.Customer_Success__r.Name);
+                                htmlBody = htmlBody.replace('{!Opportunity1__c.Link}',  recordUrl);
                                 Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
                                 mail.setHtmlBody(htmlBody);
                                 mail.setSubject(temp.Subject);
@@ -257,11 +263,11 @@ public class OpportunityHelper {
         try{
             if(State!=null && city !=null && routename!=null && salesUserId !=null){
                 Route__c routeRec = new Route__c();
-                routeRec.Route_Name_New__c = routename;
-                routeRec.City_Name__c = city;
-                routeRec.State_Name__c = State;
-                routeRec.Sales_User__c = salesUserId;
-                insert routeRec;
+                // routeRec.Route_Name_New__c = routename;
+                // routeRec.City_Name__c = city;
+                // routeRec.State_Name__c = State;
+                // routeRec.Sales_User__c = salesUserId;
+                // insert routeRec;
                 System.debug('routeRec === >'+routeRec);
                 if(routeRec !=null){
                     return routeRec;

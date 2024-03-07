@@ -115,7 +115,7 @@ public without sharing class TodayTaskAuraController {
                                    WHERE Planned_Visit_Date__c=:VisitFormatedDate AND Account__r.BillingStreet !=null AND Account__r.BillingCity !=null AND Assigned_User__c=: currentUserId AND Status__c != 'Completed'];*/
                 
                 visitListToShow = [SELECT Id, Name, Status__c, Account__c, Duration__c, Account__r.Name, Account__r.Website, Account__r.Email__c, Account__r.Phone,  Visit_Time__c,Visit_Status__c,Check_In_Time__c,
-                                   Planned_Visit_Date__c, Weekly_Beat_Plan__c, KPI_Target__c, KPI_Target__r.KPI_Target_Name__c,Account__r.BillingStreet, Account__r.BillingCity, Account__r.BillingState,
+                                   Planned_Visit_Date__c, Weekly_Beat_Plan__c, KPI_Target__c, KPI_Target__r.KPI_Target_Name__c,Account__r.BillingStreet, Lead__r.First_Name__c, Account__r.BillingCity, Account__r.BillingState,
                                    Account__r.BillingPostalCode,Account__r.BillingCountry,Geo_Location__latitude__s, Geo_Location__longitude__s, Weekly_Beat_Plan__r.Monthly_Beat_Plan__r.Approval_Status__c,Expected_Start_Time__c,
                                    Lead__c, Lead__r.Name, Lead__r.Address__City__s, Lead__r.Address__Street__s, Lead__r.Address__PostalCode__s,Lead__r.Address__StateCode__s, Lead__r.Address__CountryCode__s FROM Visit__c 
                                    WHERE Planned_Visit_Date__c=:VisitFormatedDate AND (Lead__r.Address__Street__s != null OR Account__r.BillingStreet != null) AND (Lead__r.Address__City__s != null OR Account__r.BillingCity != null) AND (Lead__r.Address__StateCode__s != null OR Account__r.BillingState != null) AND (Lead__r.Address__PostalCode__s != null OR Account__r.BillingPostalCode != null) AND Assigned_User__c=: currentUserId AND Status__c != 'Completed'];
@@ -715,6 +715,25 @@ public without sharing class TodayTaskAuraController {
             }
         }catch(Exception e){
             system.debug('Error == >'+e.getMessage()+' && Error Line === >'+e.getLineNumber());
+        }
+        return null;
+    }
+
+
+    // Method for getting Selected Contact Email
+    @AuraEnabled 
+    public static Contact getSelectedContactEmail(String contactId){
+        Contact conRec = new Contact();
+        try{
+            if(contactId !=null){
+                conRec = [SELECT Id,Name,Email FROM Contact WHERE Id=:contactId]; 
+                if(conRec.Email !=null){
+                    System.debug('conRec 12 === >'+conRec);
+                    return conRec;
+                }
+            }
+        }catch(Exception e){
+        System.debug('The Error '+e.getMessage()+' && Erron Line '+e.getLineNumber());
         }
         return null;
     }

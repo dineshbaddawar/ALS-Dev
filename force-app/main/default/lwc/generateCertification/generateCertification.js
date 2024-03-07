@@ -96,7 +96,7 @@ export default class GenerateCertification extends LightningElement {
            validateCertification({recId:this.recordId}).then((result) => {
                console.log('result is ==>', result);
                if (this.value != null && this.value != undefined && this.value == 'Training Template Certificate'){
-            if(result.Subject__c == undefined || result.Audit_Scheme__c == undefined || result.Total_sites_to_be_covered__c == undefined || result.Area_Of_The_Units_To_Be_Audited__c == undefined || result.Total_Effective_employees_as_stated_in_E__c == undefined || result.Type_of_Audit__c == undefined || result.Scope_of_Audit__c == undefined || result.ContactId__c == undefined || result.Category_of_FBO__c == undefined){
+            if(result.Subject__c == undefined || result.ContactId__c == undefined || result.Category_of_FBO__c == undefined){
                 this.isValidateTraining = true;
                  this.isShowButtonHide = false;
             }else{

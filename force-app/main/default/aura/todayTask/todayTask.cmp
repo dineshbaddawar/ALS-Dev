@@ -146,7 +146,7 @@
                                                         <aura:if isTrue="{!val.Account__c != null}">
                                                             <span>{!val.Account__r.Name}</span>                           
                                                             <aura:set attribute="else">
-                                                                <span>{!val.Lead__r.Name}</span>
+                                                                <span>{!val.Lead__r.First_Name__c}&nbsp;{!val.Lead__r.Name}</span>
                                                             </aura:set>
                                                         </aura:if>
                                                     </a>

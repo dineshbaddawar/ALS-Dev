@@ -25,14 +25,14 @@
 
          <template if:true={isValidate}>
         <center style="text-align: center; padding-top: 2rem;">
-        <h2 style=" font-size: 25px;text-align: center;font-family: serif;">Please provide values for all Audit fields,Subject and Contact to generate the Certificate Quote PDF.</h2> <br/>
+        <h2 style=" font-size: 25px;text-align: center;font-family: serif;">Please provide values for all Audit Details,Subject and Contact to generate the Certificate Quote PDF.</h2> <br/>
 
         </center>
         </template>
 
         <template if:true={isValidateTraining}>
         <center style="text-align: center; padding-top: 2rem;">
-        <h2 style=" font-size: 25px;text-align: center;font-family: serif;">Please provide values for all Audit fields,Subject, FBO and Contact to generate the Certificate Quote PDF.</h2> <br/>
+        <h2 style=" font-size: 25px;text-align: center;font-family: serif;">Please provide values for all Training template fields, Subject and Contact to generate the Certificate Quote PDF.</h2> <br/>
 
         </center>
         </template>
@@ -41,7 +41,7 @@
            <template if:true={isShowPDFPreview}>
  
              <template if:true={isShowPDFPreview}>
-               <iframe src={pdfLink} width="100%" height="700" style="border:none;">
+               <iframe src={pdfLink} width="auto" height="auto">
                </iframe>
             </template>
  

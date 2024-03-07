@@ -17,6 +17,7 @@ public class ALS_Quote_pdf_controllerTest {
       Quote_C__c quoRec = new Quote_C__c();
         quoRec.Name = 'Test';
          quoRec.OpportunityId__c = opp1.Id;
+         quoRec.Quote_Validity1__c = system.today().addDays(2);
         insert quoRec;
          
         ApexPages.StandardController sc = new ApexPages.StandardController(quoRec);

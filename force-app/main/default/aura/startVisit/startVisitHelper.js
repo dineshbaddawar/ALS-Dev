@@ -85,6 +85,10 @@
         var leadId = component.get('v.leadID');
         var passingId;
 
+        if (accountId != null && accountId != undefined) {
+            component.set("v.AccountIdForLWC", accountId);
+        }
+
         if(accountId !== undefined && accountId !== null) {
             passingId = accountId;
         } else if(leadId !== undefined && leadId !== null) {

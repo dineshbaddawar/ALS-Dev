@@ -96,7 +96,7 @@
             </div>
             <div style="display: inline-block; padding: 2rem 2rem; vertical-align: middle; float: left; width: 40%;">
                 <table>
-                    <div style="margin-bottom: 10px;font-size: 15px;margin-left: 100px;"><strong>Quotation Date : &nbsp; <span style="font-weight: normal;"><apex:outputText value="{0, date, MM/dd/yyyy}"><apex:param value="{!quote.CreatedDate}" /></apex:outputText></span>  </strong></div>
+                    <div style="margin-bottom: 10px;font-size: 15px;margin-left: 100px;"><strong>Quotation Date : &nbsp; <span style="font-weight: normal;"><apex:outputText value="{0, date, dd/MM/yyyy}"><apex:param value="{!quote.CreatedDate}" /></apex:outputText></span>  </strong></div>
                     <!--tr>
                         <td style="padding-bottom: 10px;white-space: nowrap;border:none"><span><b>Quotation Date :</b></span></td>
                         <td style="padding-bottom: 10px;white-space: nowrap;border:none "><span style="font-weight: normal;"><apex:outputText value="{0, date, MM/dd/yyyy}"><apex:param value="{!quote.CreatedDate}" /></apex:outputText></span></td>
@@ -129,7 +129,7 @@
             <!-- Introduction -->
             <div style="margin-bottom: 10px;font-size: 15px;">
                 <span class="content" style="display: block;margin-bottom: 10px;"><strong>Dear {!quote.ContactId__r.Name},</strong></span>
-                <span class="content" style="display: block;margin-bottom: 40px;">Thank-you very much for your interest in our services, we are pleased to submit our offer for (Scope of work).</span>
+                <span class="content" style="display: block;margin-bottom: 40px;">Thank-you very much for your interest in our services, we are pleased to submit our offer.</span>
             </div>
             
         </div>
@@ -379,7 +379,7 @@
         
         <div style="page-break-after: always"/>
         
-        <div style="margin-bottom: 10px; margin-top: 15px"><strong>Sponsor Details:</strong></div>
+        <!--div style="margin-bottom: 10px; margin-top: 15px"><strong>Sponsor Details:</strong></div-->
         <Span class="content" style="display: block; margin-bottom: 5px;">{!quote.AccountId__r.Name}</Span>
         <Span class="content" style="display: block; margin-bottom: 5px;">{!quote.ContactId__r.Email}</Span>
         
@@ -401,9 +401,9 @@
             <span>{!NotesandTerms.Sample_Dispatch_Address__c}</span>
         </div>
         
-        <div style = "font-size: 15px; margin-top:20px">
+        <!--div style = "font-size: 15px; margin-top:20px">
             Please let me know if you have any questions.
-        </div>
+        </div-->
         
         <div>
             <div style="margin-bottom: 10px;font-size: 15px;margin-top:10px"><strong>For Analytical Solutions</strong></div>

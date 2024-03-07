@@ -61,7 +61,8 @@
     <aura:attribute name="shipCountry" type="String" />
     <aura:attribute name="shipPostalCode" type="String" />
     
-    <aura:attribute name="oppName" type="String" />
+    <aura:attribute name="oppName" type="String" /> 
+    <aura:attribute name="AccountIdForLWC" type="String" />
     
     <aura:registerEvent name="fieldVisitComponentEvent" type="c:fieldVisitComponentEvent"/>
     
@@ -1097,12 +1098,6 @@
             </div>
         </aura:if>
         
-        <!--lightning:recordForm
-                objectApiName="Opportunity"
-                mode="edit"
-                columns="2"
-                onsubmit="{!c.handleSuccess}"
-            /-->
         
         <aura:if isTrue="{!v.showOpportunityCreate}">
             <div>
@@ -1158,7 +1153,7 @@
                         <div class="slds-grid slds-wrap slds-modal__content slds-p-around_xx-small">
                             <div class="slds-col slds-size_1-of-1 slds-p-around_xx-small">
                                 <span>
-                                    <lightning:input type="text" aura:id="logSubject" label=" Subject" required="true" placeholder="Enter subject..." onchange="{!c.OnchageMomDescription}" />
+                                    <lightning:input type="text" aura:id="logSubject" label=" Subject" required="true" placeholder="Enter subject..." onchange="{!c.OnchageMomSubjectValue}" />
                                     
                                 </span>
                             </div>
@@ -1166,8 +1161,11 @@
                         
                         <div class="slds-grid slds-wrap slds-modal__content slds-p-around_xx-small">
                             <div class="slds-col slds-size_1-of-1 slds-p-around_xx-small">
-                                <span>
+                                <!-- <span>
                                     <lightning:input type="email" aura:id="logStackHolderEmail" label="Stakeholder Email"  required="true" placeholder="Enter email..." onchange="{!c.OnchageMomDescription}" />
+                                </span> -->
+                                <span>
+                                    <c:recordpickercontact AccountIdForLWC="{!v.AccountIdForLWC}"  onsendidtoaura="{!c.handleLWCEventContactLookup}"/>
                                 </span>
                             </div>
                         </div>
@@ -1183,7 +1181,7 @@
                         <div class="slds-grid slds-wrap slds-modal__content slds-p-around_xx-small">
                             <div class="slds-col slds-size_1-of-1 slds-p-around_xx-small">
                                 <span>
-                                    <lightning:input type="text" aura:id="logDescription" label=" Mom Description" placeholder="Enter description..." onchange="{!c.OnchageMomDescription}" />
+                                    <lightning:input type="text" aura:id="logDescription" label=" Mom Description" placeholder="Enter description..." onchange="{!c.OnchageMomDescriptionValue}" />
                                     
                                 </span>
                             </div>

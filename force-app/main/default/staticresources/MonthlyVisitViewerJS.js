@@ -93,7 +93,8 @@ $(document).ready(function () {
         if(result!=null){
             result.forEach(item=>{
                 if(item.Account__c == undefined || item.Account__c == null){
-                repVisits.push({ id: item.Id, start: item.Actual_Visit_Date__c,title:item.Lead__r.Name, kpiId:item.KPI_Target__c, eventColor:'purple', status:item.Visit_Status__c, Name:item.Name, RouteName:item.Route_Name__c, visitDate:item.Planned_Visit_Date__c, desc:item.Description__c, kpiName: item.KPI_Target_Name__c, duration:item.Duration__c });
+                var name = item.Lead__r.First_Name__c + ' ' + item.Lead__r.Name
+                repVisits.push({ id: item.Id, start: item.Actual_Visit_Date__c,title:name, kpiId:item.KPI_Target__c, eventColor:'purple', status:item.Visit_Status__c, Name:item.Name, RouteName:item.Route_Name__c, visitDate:item.Planned_Visit_Date__c, desc:item.Description__c, kpiName: item.KPI_Target_Name__c, duration:item.Duration__c });
         }else{
             repVisits.push({ id: item.Id, start: item.Actual_Visit_Date__c,title:item.Account__r.Name, kpiId:item.KPI_Target__c, eventColor:'purple', status:item.Visit_Status__c, Name:item.Name, RouteName:item.Route_Name__c, visitDate:item.Planned_Visit_Date__c, desc:item.Description__c, kpiName: item.KPI_Target_Name__c, duration:item.Duration__c });
         }
@@ -452,6 +453,7 @@ $("#tagRSM2").click(function () {
     //     }, { escape: false });
     // }
     
+    /*
     function getUser() {
         debugger;
         selectedUser = $('#user-selectUser :selected').text();
@@ -504,6 +506,7 @@ $("#tagRSM2").click(function () {
             });
         }
     }
+    */
     
     $("#user-selectlocation").change(function () {
         debugger;
@@ -707,10 +710,10 @@ function getVisitKpis(selectedEvent) {
             var newFormattedDate = formattedDateList[0];
             if (selectedEvent.kpiId != undefined && selectedEvent.kpiId != null) {
                 $('#taskDetails').append("<div><span><b>Task Id :</b> " + " </span>" + selectedEvent.Name + "</div>");
-                $('#taskDetails').append("<div><span><b>Route :</b> " + " </span>" + selectedEvent.RouteName + "</div>");
+               // $('#taskDetails').append("<div><span><b>Route :</b> " + " </span>" + selectedEvent.RouteName + "</div>");
                 $('#taskDetails').append("<div><span><b>Visit Date : </b>" + " </span>" + newFormattedDate + "</div>");
                 $('#taskDetails').append("<div><span><b>Visit Status : </b>" + " </span>" + selectedEvent.status + "</div>");
-                $('#taskDetails2').append("<div><span><b>Visit Description : </b>" + " </span>" + selectedEvent.desc + "</div>");
+               // $('#taskDetails2').append("<div><span><b>Visit Description : </b>" + " </span>" + selectedEvent.desc + "</div>");
                 $('#taskDetails2').append("<div><span><b>Visit Type :</b> " + " </span>" + selectedEvent.kpiName + "</div>");
                 $('#taskDetails2').append("<div><span><b>Client Name :</b> " + " </span>" + selectedEvent.title + "</div>");
                 $('#taskDetails2').append("<div><span><b>Visit Duration :</b> " + " </span>" + selectedEvent.duration + "</div>");

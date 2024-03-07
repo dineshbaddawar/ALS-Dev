@@ -95,7 +95,7 @@
             </div>
             <div style="display: inline-block; padding: 2rem 2rem; vertical-align: middle; float: left; width: 40%;">
                 <table>
-                    <div style="margin-bottom: 10px;font-size: 15px;margin-left: 100px;"><strong>Quotation Date : &nbsp; <span style="font-weight: normal;"><apex:outputText value="{0, date, MM/dd/yyyy}"><apex:param value="{!quote.CreatedDate}" /></apex:outputText></span>  </strong></div>
+                    <div style="margin-bottom: 10px;font-size: 15px;margin-left: 100px;"><strong>Quotation Date : &nbsp; <span style="font-weight: normal;"><apex:outputText value="{0, date, dd/MM/yyyy}"><apex:param value="{!quote.CreatedDate}" /></apex:outputText></span>  </strong></div>
                     <!--tr>
                         <td style="padding-bottom: 10px;white-space: nowrap;border:none"><span><b>Quotation Date :</b></span></td>
                         <td style="padding-bottom: 10px;white-space: nowrap;border:none "><span style="font-weight: normal;"><apex:outputText value="{0, date, MM/dd/yyyy}"><apex:param value="{!quote.CreatedDate}" /></apex:outputText></span></td>
@@ -125,7 +125,7 @@
             <!-- Introduction -->
             <div style="margin-bottom: 10px;font-size: 15px;">
                 <span class="content" style="display: block;margin-bottom: 10px;"><strong>Dear {!quote.ContactId__r.Name},</strong></span>
-                <span class="content" style="display: block;margin-bottom: 40px;">Thank-you very much for your interest in our services, we are pleased to submit our offer for (Scope of work).</span>
+                <span class="content" style="display: block;margin-bottom: 40px;">Thank-you very much for your interest in our services, we are pleased to submit our offer.</span>
             </div>
             
         </div>
@@ -284,7 +284,7 @@
         <div style = "font-size: 15px;">
             <div style="margin-bottom: 10px; margin-top: 20px"><strong>Note:</strong></div>
             <Span class="content" style="display: block; margin-bottom: 5px;">•  If Method is not feasible, Method Feasibility charges will be applicable as above</Span>
-            <Span class="content" style="display: block; margin-bottom: 5px;">•  Study protocol will be share, after completion of Method Feasibility successfully. </Span>
+            <Span class="content" style="display: block; margin-bottom: 5px;">•  Study protocol will be share, after completion of Method Feasibility/Development successfully. </Span>
             <Span class="content" style="display: block; margin-bottom: 5px;">•  If data is required for any regulatory submission, we need to opt for at-least one of:</Span>
                 <Span class="content" style="display: block; margin-bottom: 5px;">•  A: Method Validation B: Method Verification C: Method Transfer  <br/>
                 <span style="margin-left:8px;">If sponsor does not opt. any option from above, the report will be with comments “The Analytical Method Validation /
@@ -319,7 +319,7 @@
         
         <div style="page-break-after: always"/>
         
-        <div style="margin-bottom: 10px; margin-top: 15px"><strong>Sponsor Details:</strong></div>
+        <!--div style="margin-bottom: 10px; margin-top: 15px"><strong>Sponsor Details:</strong></div-->
         <Span class="content" style="display: block; margin-bottom: 5px;">{!quote.AccountId__r.Name}</Span>
         <Span class="content" style="display: block; margin-bottom: 5px;">{!quote.ContactId__r.Email}</Span>
         
@@ -327,7 +327,7 @@
         <table style="width: 100%; border-collapse: collapse; font-size: 14px;margin-top: 20px;">
             <tr>
                 <td style="border: 1px solid #000; padding: 5px;">GST No.</td>
-                <td style="border: 1px solid #000; padding: 5px;">27AAACI1188E1ZR &amp; SAC No. 998111 <b>(GST @ 18% will be applicable)</b></td>
+                <td style="border: 1px solid #000; padding: 5px;">27AAACI1188E1ZR <b>(GST @ 18% will be applicable)</b></td>
             </tr>
             <tr>
                 <td style="border: 1px solid #000; padding: 5px;">Udyam Regn. No.</td>
@@ -341,9 +341,9 @@
             <span>{!NotesandTerms.Sample_Dispatch_Address__c}</span>
         </div>
         
-        <div style = "font-size: 15px; margin-top:20px">
+        <!--div style = "font-size: 15px; margin-top:20px">
             Please let me know if you have any questions.
-        </div>
+        </div-->
         
         <div>
             <div style="margin-bottom: 10px;font-size: 15px;margin-top:10px"><strong>For Analytical Solutions</strong></div>

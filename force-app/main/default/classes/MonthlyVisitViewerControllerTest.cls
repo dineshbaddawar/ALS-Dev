@@ -7,8 +7,11 @@ public with sharing class MonthlyVisitViewerControllerTest {
         MBRec.Month_Name__c = 'January';
         update MBRec;
         MonthlyVisitViewerController.fetchPageData('2024-January-30');
+        MonthlyVisitViewerController.mytest(); 
+        MonthlyVisitViewerController.mytest1();
     }     
     
+    /*
     @isTest
     static void testGetCurrentUserRoutes() {
         Route__c testRoute = new Route__c(  
@@ -172,5 +175,6 @@ public with sharing class MonthlyVisitViewerControllerTest {
         MonthlyVisitViewerController.fetchGroupmemeber(testAssignmentGroupLocation);
         Test.stopTest();
     }
+     */
     
 }

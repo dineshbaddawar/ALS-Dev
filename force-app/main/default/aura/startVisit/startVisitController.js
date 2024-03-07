@@ -166,6 +166,23 @@
             component.set("v.stackEmail",stackEmail);
         }
     },
+
+    OnchageMomSubjectValue: function (component, event, helper) { 
+        debugger;
+        var subject = event.target.value;
+        if(subject !=undefined){
+            component.set("v.logMomSubject",subject);
+        }
+    },
+
+    OnchageMomDescriptionValue: function (component, event, helper) { 
+        debugger;
+        var description = event.target.value;
+        if(description !=undefined){
+            component.set("v.logMomDescription",description);
+        }
+
+    },
     
     createMomActivity : function (component, event, helper) {
         debugger;
@@ -656,5 +673,40 @@
         var userIdFromLWC = event.getParam('value');        
         // console.log(userIdFromLWC);
         component.set("v.auraUserId", userIdFromLWC);
+    },
+
+    handleLWCEventContactLookup: function (component, event, helper) { 
+        debugger;
+        var selectedContactId = event.getParam('value'); 
+
+        if (selectedContactId != null) {
+            var action = component.get("c.getSelectedContactEmail");
+            action.setParams({
+                contactId: selectedContactId
+            });
+            action.setCallback(this, function (response) {
+                if (response.getState() == 'SUCCESS') {
+                    if (response.getReturnValue() != null) {
+                        var contactData = response.getReturnValue();
+                        component.set("v.stackEmail",contactData.Email);
+                    } else {
+                     //   alert('Please Select Contact with Email');
+                        var toastEvent = $A.get("e.force:showToast");
+                        toastEvent.setParams({
+                            title : 'ERROR',
+                            message: 'Please Select Contact with Email',
+                            duration:' 5000',
+                            key: 'info_alt',
+                            type: 'error',
+                            mode: 'pester'
+                        });
+                        toastEvent.fire();
+                    }
+                }
+            });
+            $A.enqueueAction(action);
+        }
+
+      
     },
 })
